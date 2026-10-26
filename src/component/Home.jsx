@@ -35,11 +35,6 @@ const Home = () => {
 
     const inputRef = useRef(null);
 
-
-    useEffect(() => {
-        inputRef.current.focus();
-    }, []);
-
     const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState("");
     return (
@@ -69,7 +64,7 @@ const Home = () => {
                         ref={btncolor}
                         onClick={setcolor}
                         style={{ backgroundColor: "red" }}
-                        className="py-3 animate-float rounded-3xl px-6 text-white font-bold"
+                        className="py-3 cursor-pointer animate-float rounded-3xl px-6 text-white font-bold"
                     >
                         DJ LIGHT
                     </button>
@@ -94,6 +89,12 @@ const Home = () => {
                         <h1 className="font-bold text-3xl text-center mb-6">Auto-Focus Input</h1>
 
                         <div className="py-2 px-6 border-2 border-black rounded-3xl cursor-pointer"><input ref={inputRef} type="text" placeholder="Enter your name" className="outline-none" /></div>
+                        <button
+                            onClick={() => inputRef.current.focus()}
+                            className="mt-4 px-6 py-3 bg-blue-600 cursor-pointer block mx-auto text-white rounded-xl"
+                        >
+                            Focus Input
+                        </button>
                     </div>
                 </div>
             </section>
